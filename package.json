@@ -1,0 +1,19 @@
+{
+  "name": "com.quanty-bandit.qb.extensions",
+  "version": "1.0.0",
+  "displayName": "qb.Extensions",
+  "description": "Utility blob",
+  "unity": "6000.2",
+  "keywords": [
+    "Extensions",
+	"GameObject",
+	"Awaitable",
+	"Texture2D",
+	"MethodInfo"
+  ],
+  "author": {
+    "name": "quanty bandit",
+    "email": "pascal@quantybandit.com",
+    "url": "https://quantybandit.com"
+  }
+}
