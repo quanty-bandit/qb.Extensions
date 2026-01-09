@@ -63,6 +63,14 @@ namespace Extensions.String_FoldToASCII
     /// </summary>
     public static class String_FoldToASCII
     {
+        /// <summary>
+        /// Converts alphabetic, numeric, and symbolic Unicode characters
+        /// which are not in the first 127 ASCII characters (the "Basic Latin" Unicode block)
+        /// into their ASCII equivalents, if one exists.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="length">Optional maximum string input size to fold</param>
+        /// <returns></returns>
         public static string FoldToASCII(this string input, int? length = null)
         {
             if (string.IsNullOrWhiteSpace(input)) return input;

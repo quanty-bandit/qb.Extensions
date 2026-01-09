@@ -222,3 +222,40 @@ for instance, ensuring correct layering of transparent objects.
 **Sprite.GetPhysicsShapeTotalSizeAndCenter(out Vector2 size, out Vector2 center)**
 >Returns the physics shape total size and the center
 
+### string
+**string string.AddSpaceBeforeCapital()**
+>Add a one space before each capital after the first charater of the string 
+
+**string string.FoldToASCII(int? length = null)**
+>Converts alphabetic, numeric, and symbolic Unicode characters
+which are not in the first 127 ASCII characters (the "Basic Latin" Unicode block)
+into their ASCII equivalents, if one exists.
+>
+>Source code from: https://gist.github.com/andyraddatz/e6a396fb91856174d4e3f1bf2e10951c
+
+**string string.FormatForValidEnumName()**
+>Returns a formatted string valid to be an enum name by removing first and last spaces, invalid characters and replace spaces and - by _
+
+**string string.FormatForValidFileName(string spaceReplaceString="-")**
+>Formats the string by removing first and last spaces, replaces spaces by the specified spaceReplaceString and removes invalid characters 
+
+**int[] string.GetUnicodeValues()**
+>Returns the uft32 characters string values.
+
+**bool string.IsBlank()**
+>Checks if a string contains null, empty or white space.
+
+**bool string.IsNullOrEmpty()**
+**bool string.IsNullOrWhiteSpace()**
+
+**string string.RemoveHtmlTag(params string[] tags)**
+>Returns a new string with specified html tags removed
+
+**string string.RemoveHtmlTagAndContent(params string[] tags)**
+>Returns a new string with specified html tag and text inside removed
+
+**string string.ReplaceAt(int index, int length, string replace)**
+>Returns a new string with the substring replacement at index.
+
+**string string.ReplaceEachCharByPattern(int index, int length, string replacePattern)**
+>Returns a new string with a part filled by a string pattern
