@@ -4,6 +4,11 @@ namespace Extensions.Color_GetComplementary
 {
     public static class Color_Complementary
     {
+        /// <summary>
+        /// Gets a new color filled with the complementaries values from the source color.
+        /// </summary>
+        /// <param name="_src">The extension instance source</param>
+        /// <returns>A new color filled with the complementaries values from the source color</returns>
         public static Color Complementary(this Color _src)
         {
             if (_src.r == 0 && _src.g == 0 && _src.b == 0)

@@ -5,12 +5,13 @@ namespace Extensions.RectTransform_GetWorldRect
     public static class RectTransform_GetWorldRect
     {
         /// <summary>
-        /// Converts RectTransform.rect's __local coordinates to world space
+        /// Converts RectTransform.rect's local coordinates to world space rect
         /// Usage example RectTransformExt.GetWorldRect(myRect, Vector2.one);
         /// </summary>
         /// <returns>The world rect.</returns>
-        /// <param name="rt">RectangleTransform we want to convert to world coordinates.</param>
+        /// <param name="rt">The recttransform source</param>
         /// <param name="scale">Optional scale pulled from the CanvasScaler. Default to using Vector2.one.</param>
+        /// <returns>The world space rect</returns>
         static public Rect GetWorldRect(this RectTransform rt, Vector2 scale)
         {
             // Convert the rectangle to world corners and grab the top left
@@ -24,6 +25,11 @@ namespace Extensions.RectTransform_GetWorldRect
             return new Rect(topLeft, scaledSize);
         }
 
+        /// <summary>
+        /// Converts RectTransform.rect's local coordinates to world space
+        /// </summary>
+        /// <param name="rt">The recttransform source</param>
+        /// <returns>The world space rect</returns>
         static public Rect GetWorldRect(this RectTransform rt)
         {
             return GetWorldRect(rt, Vector2.one);

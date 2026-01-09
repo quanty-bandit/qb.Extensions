@@ -7,6 +7,11 @@ namespace Extensions.AudioMixer_GetExposedParameterNames
 {
     public static class  AudioMixer_GetExposedParameterNames
     {
+        /// <summary>
+        /// Gets the exposed parameters names from the AudioMixer
+        /// </summary>
+        /// <param name="mixer">The extension target</param>
+        /// <returns>The array of the exposed names</returns>
         public static string[] GetExposedParameterNames(this AudioMixer mixer)
         {
             List<string> exposedParams = new List<string>();

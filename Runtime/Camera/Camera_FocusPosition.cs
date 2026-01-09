@@ -5,7 +5,7 @@ namespace Extensions.Camera_FocusOn
     public static class Camera_FocusPosition
     {
         /// <summary>
-        /// Get the position of the camera to view a circular area, placed on center position,
+        /// Gets the position of the camera to view a circular area, placed on center position,
         /// with the best fit.   
         /// </summary>
         /// <param name="self">The camera target</param>

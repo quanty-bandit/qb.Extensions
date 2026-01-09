@@ -4,11 +4,17 @@ namespace Extensions.GameObject_GetBoundsWithChildren
 {
     public static class GameObject_GetBoundsWithChildren
     {
-        public static Bounds GetBoundsWithChildren(this GameObject gameObject)
+        /// <summary>
+        /// Returns the global bounds of a rendered game object and its children   
+        /// </summary>
+        /// <param name="gameObject">The instance source</param>
+        /// <param name="includeInactive">Set to true to include inactive children</param>
+        /// <returns></returns>
+        public static Bounds GetBoundsWithChildren(this GameObject gameObject,bool includeInactive=false)
         {
             Renderer parentRenderer = gameObject.GetComponent<Renderer>();
 
-            Renderer[] childrenRenderers = gameObject.GetComponentsInChildren<Renderer>();
+            Renderer[] childrenRenderers = gameObject.GetComponentsInChildren<Renderer>(includeInactive);
 
             Bounds bounds = parentRenderer != null
                ? parentRenderer.bounds

@@ -11,7 +11,8 @@ namespace Extensions.IList_Swap
         /// <param name="indexB">The index of the second element.</param>
         public static void Swap<T>(this IList<T> list, int indexA, int indexB)
         {
-            (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
+            if(indexA!=indexB)
+                (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
         }
     }
 }

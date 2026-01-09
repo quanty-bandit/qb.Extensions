@@ -4,18 +4,24 @@ namespace Extensions.Image_SetSprite
 {
     public static class Image_SetSprite
     {
-        public static void SetSprite(this Image _target,Sprite _sprite,bool _alignPivots=true)
+        /// <summary>
+        /// Sets the image sprite and align pivot if required
+        /// </summary>
+        /// <param name="self">The image source</param>
+        /// <param name="sprite">The sprite to use</param>
+        /// <param name="alignPivots">Sets to true to align the sprite pivot</param>
+        public static void SetSprite(this Image self,Sprite sprite,bool alignPivots=true)
         {
-            _target.sprite = _sprite;
-            if (_alignPivots && _sprite!=null)
+            self.sprite = sprite;
+            if (alignPivots && sprite!=null)
             {
-                var pivot = _sprite.pivot;
-                var rect = _sprite.rect;
+                var pivot = sprite.pivot;
+                var rect = sprite.rect;
                 if (pivot != null)
                 {
                     pivot.x /= rect.width;
                     pivot.y /= rect.height;
-                    _target.rectTransform.pivot = pivot;
+                    self.rectTransform.pivot = pivot;
                 }
             }
         }

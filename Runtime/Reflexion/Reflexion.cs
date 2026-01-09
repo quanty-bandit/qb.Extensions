@@ -64,7 +64,7 @@ namespace Extensions.Reflexion
         /// </summary>
         /// <typeparam name="T">The type to check against.</typeparam>
         /// <param name="type">The type to check.</param>
-        /// <returns>True if the specified type is assignable from the generic type parameter T, otherwise false.</returns>
+        /// <returns>True if the specified type is assignable from the generic type parameter I, otherwise false.</returns>
         public static bool Is<T>(this Type type)
         {
             return typeof(T).IsAssignableFrom(type);

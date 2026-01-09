@@ -5,7 +5,7 @@ namespace Extensions.Color_Invert
     public static class Color_Invert
     {
         /// <summary>
-        /// Inverts the color.
+        /// Returns a new inverted color.
         /// Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/ColorExtensions.cs        /// </summary>
         /// </summary>
         /// <param name="color">The color to invert.</param>

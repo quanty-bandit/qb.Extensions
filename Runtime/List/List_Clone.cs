@@ -10,5 +10,6 @@ namespace Extensions.List_Clone
         /// <param name="list">The original list to be copied.</param>
         /// <returns>A new list that is a copy of the original list.</returns>
         public static List<T> Clone<T>(this IList<T> list) => new List<T>(list);
+
     }
 }

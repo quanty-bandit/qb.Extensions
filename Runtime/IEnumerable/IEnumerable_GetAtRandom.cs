@@ -23,7 +23,7 @@ namespace Extensions.IEnumerable_GetAtRandom
                 return list[UnityEngine.Random.Range(0, list.Count)];
             }
 
-            // Use reservoir sampling when the input is not an IList<T> ie: a stream or lazy sequence
+            // Use reservoir sampling when the input is not an IList<I> ie: a stream or lazy sequence
             using var enumerator = sequence.GetEnumerator();
             if (!enumerator.MoveNext())
                 throw new InvalidOperationException("Cannot get a random element from an empty collection.");

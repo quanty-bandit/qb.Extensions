@@ -4,15 +4,21 @@ namespace Extensions.RectTransform_GetAnchoredPositionFrom
 {
     public static class RectTransform_GetAnchoredPositionFrom
     {
-        public static Vector2 GetAnchoredPositionFrom(this RectTransform _target, RectTransform _from)
+        /// <summary>
+        /// Gets the anchored position from an other origin 
+        /// </summary>
+        /// <param name="source">The rectansform source</param>
+        /// <param name="origin">The rectransform origin</param>
+        /// <returns>The anchored position from origin</returns>
+        public static Vector2 GetAnchoredPositionFrom(this RectTransform source, RectTransform origin)
         {
             Vector2 localPoint;
-            Vector2 fromPivotDerivedOffset = new Vector2(_target.rect.width * _target.pivot.x + _target.rect.xMin, _target.rect.height * _target.pivot.y + _target.rect.yMin);
-            Vector2 screenP = RectTransformUtility.WorldToScreenPoint(null, _target.position);
+            Vector2 fromPivotDerivedOffset = new Vector2(source.rect.width * source.pivot.x + source.rect.xMin, source.rect.height * source.pivot.y + source.rect.yMin);
+            Vector2 screenP = RectTransformUtility.WorldToScreenPoint(null, source.position);
             screenP += fromPivotDerivedOffset;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(_from, screenP, null, out localPoint);
-            Vector2 pivotDerivedOffset = new Vector2(_from.rect.width * _from.pivot.x + _from.rect.xMin, _from.rect.height * _from.pivot.y + _from.rect.yMin);
-            return _from.anchoredPosition + localPoint - pivotDerivedOffset;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(origin, screenP, null, out localPoint);
+            Vector2 pivotDerivedOffset = new Vector2(origin.rect.width * origin.pivot.x + origin.rect.xMin, origin.rect.height * origin.pivot.y + origin.rect.yMin);
+            return origin.anchoredPosition + localPoint - pivotDerivedOffset;
         }
     }
 }

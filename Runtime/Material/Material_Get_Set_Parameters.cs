@@ -17,7 +17,11 @@ namespace Extensions.Material_Get_Set_Parameters
             public Vector4[] vectors;
             public Texture texture;
         }
-
+        /// <summary>
+        /// Gets an array of the material shader parameters
+        /// </summary>
+        /// <param name="self">The material source</param>
+        /// <returns>Returns an array of material shader parameters</returns>
         public static MaterialShaderParameter[] GetParameters(this Material self)
         {
             
@@ -55,7 +59,12 @@ namespace Extensions.Material_Get_Set_Parameters
             return parameters.ToArray();
         }
 
-        public static void SetParameters(this Material self, MaterialShaderParameter[] parameters)
+        /// <summary>
+        /// Sets materials parameters using MaterialShaderParameter objects
+        /// </summary>
+        /// <param name="self">The material source</param>
+        /// <param name="parameters">material shader parameters</param>
+        public static void SetParameters(this Material self,params MaterialShaderParameter[] parameters)
         {
             if (parameters == null || parameters.Length == 0) return;
             foreach (var param in parameters)

@@ -5,6 +5,12 @@ namespace Extensions.Color_Contrast
 {
     public static class Color_Contrast
     {
+        /// <summary>
+        /// Gets a new contrasted color from source
+        /// </summary>
+        /// <param name="_src"></param>
+        /// <param name="_preserveOpacity"></param>
+        /// <returns>A new contrasted color from the source</returns>
         public static Color Contrast(this Color _src, bool _preserveOpacity=true)
         {
             Color inputColor = _src;

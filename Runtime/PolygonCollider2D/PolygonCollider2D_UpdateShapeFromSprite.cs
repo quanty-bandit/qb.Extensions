@@ -5,12 +5,29 @@ namespace Extensions.PolygonCollider2D_UpdateShapeFromSprite
     public static class PolygonCollider2D_UpdateShapeFromSprite
     {
 
-        public static void UpdateShapeFromSprite(this PolygonCollider2D _target, SpriteRenderer _spriteRenderer)
+        /// <summary>
+        /// Updates physics shape from sprite renderer
+        /// </summary>
+        /// <param name="self">The source to update</param>
+        /// <param name="spriteRenderer">The sprite renderer input</param>
+        public static void UpdateShapeFromSprite(this PolygonCollider2D self, SpriteRenderer spriteRenderer)
         {
-            var sprite = _spriteRenderer.sprite;
+            if(spriteRenderer != null)
+                UpdateShapeFromSprite(self,spriteRenderer.sprite);
+        }
+
+
+        /// <summary>
+        /// Updates physics shape from sprite 
+        /// </summary>
+        /// <param name="self">The source to update</param>
+        /// <param name="spriteRenderer">The sprite renderer input</param>
+        public static void UpdateShapeFromSprite(this PolygonCollider2D self, Sprite sprite)
+        {
+            if (sprite == null) return;
 
             int count = sprite.GetPhysicsShapeCount();
-            _target.pathCount = count;
+            self.pathCount = count;
 
             // new paths variable
             List<Vector2> path = new List<Vector2>();
@@ -23,35 +40,17 @@ namespace Extensions.PolygonCollider2D_UpdateShapeFromSprite
                 // get shape
                 sprite.GetPhysicsShape(i, path);
                 // set path
-                _target.SetPath(i, path.ToArray());
+                self.SetPath(i, path.ToArray());
 
             }
         }
 
-        public static void UpdateShapeFromSprite(this PolygonCollider2D _target)
-        {
-            var spriteRenderer = _target.GetComponent<SpriteRenderer>();
-            if (spriteRenderer == null || spriteRenderer.sprite == null) return;
-            var sprite = spriteRenderer.sprite;
 
-            int count = sprite.GetPhysicsShapeCount();
-            _target.pathCount = count;
-
-            // new paths variable
-            List<Vector2> path = new List<Vector2>();
-
-            // loop path count
-            for (int i = 0; i < count; i++)
-            {
-                // clear
-                path.Clear();
-                // get shape
-                sprite.GetPhysicsShape(i, path);
-                // set path
-                _target.SetPath(i, path.ToArray());
-
-            }
-        }
+        /// <summary>
+        /// Updates physics shape from attached sprite renderer if exists
+        /// </summary>
+        /// <param name="self">The source to update</param>
+        public static void UpdateShapeFromSprite(this PolygonCollider2D self)=> UpdateShapeFromSprite(self, self.GetComponent<SpriteRenderer>());
 
     }
 }

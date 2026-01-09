@@ -4,7 +4,7 @@ namespace Extensions.Color_Blend
     public static class Color_Blend
     {
         /// <summary>
-        /// Blends two colors with a specified ratio.
+        /// Returns a new color resulting of the blend with an othe color from a specified ratio.
         /// Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/ColorExtensions.cs        /// </summary>
         /// </summary>
         /// <param name="color1">The first color.</param>
