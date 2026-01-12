@@ -5,7 +5,7 @@ namespace Extensions.Transform_InRangeOf
     public static class Transform_InRangeOf
     {
         /// <summary>
-        /// Check if the transform is within a certain distance and optionally within a certain angle (FOV) from the target transform.
+        /// Checks if the transform is within a certain distance and optionally within a certain angle (FOV) from the target transform.
         /// Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/TransformExtensions.cs
         /// </summary>
         /// <param name="source">The transform to check.</param>

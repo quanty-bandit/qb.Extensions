@@ -5,7 +5,9 @@ namespace Extensions.String_Slice
 {
     public static class String_Slice
     {
-        /// <summary>Slices a string from the start index to the end index.</summary>
+        /// <summary>
+        /// Slices a string from the start index to the end index.
+        /// </summary>
         /// <result>The sliced string.</result>
         public static string Slice(this string val, int startIndex, int endIndex)
         {

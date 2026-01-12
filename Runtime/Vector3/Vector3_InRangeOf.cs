@@ -4,7 +4,7 @@ namespace Extensions.Vector3_InRangeOf
     public static class Vector3_InRangeOf
     {
         /// <summary>
-        /// Returns a Boolean indicating whether the current Vector3 is in a given range from another Vector3
+        /// Checks if the current Vector3 is in a given range from another Vector3
         /// Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector3Extensions.cs
         /// </summary>
         /// <param name="current">The current Vector3 position</param>

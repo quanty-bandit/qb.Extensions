@@ -16,10 +16,12 @@ namespace Extensions.Vector3_Quantize{
             return Vector3.Scale(
                 quantization,
                 new Vector3(
-                    Mathf.Floor(position.x / quantization.x),
-                    Mathf.Floor(position.y / quantization.y),
-                    Mathf.Floor(position.z / quantization.z)
+                    quantization.x != 0 ? Mathf.Floor(position.x / quantization.x):0,
+                    quantization.y != 0 ? Mathf.Floor(position.y / quantization.y):0,
+                    quantization.z != 0 ? Mathf.Floor(position.z / quantization.z):0
                 ));
         }
+        public static Vector3 Quantize(this Vector3 position, float qx, float qy, float qz) => Quantize(position, new Vector3(qx, qy, qz));
+
     }
 }

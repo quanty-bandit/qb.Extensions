@@ -3,7 +3,7 @@ namespace Extensions.Vector2_InRangeOf{
     public static class Vector2_InRangeOf
     {
         /// <summary>
-        /// Returns a Boolean indicating whether the current Vector2 is in a given range from another Vector2
+        /// Checks if the current Vector2 is in a given range from another vector
         /// </summary>
         /// <param name="current">The current Vector2 position</param>
         /// <param name="target">The Vector2 position to compare against</param>

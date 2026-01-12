@@ -5,6 +5,7 @@ namespace Extensions.GameObject_GetFirstDescendantWithTag
     {
         /// <summary>
         /// Returns the first desendant from a game object with a sopecific tag or nul if nothing found.
+        /// The research process analyzes each hierarchical level before moving on to the next level in the order of the children.
         /// </summary>
         /// <param name="self">The source instance</param>
         /// <param name="tag">The tag to found</param>

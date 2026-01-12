@@ -96,6 +96,14 @@ In general each extension is define in a specific namespace formated as:
 **T GameObject.ReccursiveGetFirstComponent\<T>()**
 >Returns the first component from type from a game object and its descendants.
 
+
+**GameObject.OnEveryChild(System.Action\<GameObject> action,bool occursOnAllDescendants=false)**
+>Executes a specified action for each child of a given GameObject.<br>
+>This method iterates over all child and executes a given action on them.<br>
+>By default the action is executed only on the direct children, to apply the action on all the descendants in the hierarchy set the occursOnAllDescendants to true.<br>
+The action is a delegate that takes the child GameObject as parameter.
+
+
 ### IEnumerable
 
 **IEnumerable.DoActionOnEach\<T>(Action\<T> action)**
@@ -154,8 +162,8 @@ In general each extension is define in a specific namespace formated as:
 >Checks if a method is an override
 
 ### PolygonCollider2D
-**PolygonCollider2D.UpdateShapeFromSprite(Sprite sprite)**
-**PolygonCollider2D.UpdateShapeFromSprite(SpriteRenderer spriteRenderer)**
+**PolygonCollider2D.UpdateShapeFromSprite(Sprite sprite)**<br>
+**PolygonCollider2D.UpdateShapeFromSprite(SpriteRenderer spriteRenderer)**<br>
 **PolygonCollider2D.UpdateShapeFromSprite()**
 >Updates physics shape from sprite 
 
@@ -259,3 +267,182 @@ into their ASCII equivalents, if one exists.
 
 **string string.ReplaceEachCharByPattern(int index, int length, string replacePattern)**
 >Returns a new string with a part filled by a string pattern
+
+**string string.RichColor(string htmlHexColor)**
+>Returns the string framed with the color richtext tag 
+
+**string string.RichSize(int size)**
+>Returns the string framed with the size richtext tag 
+
+**string string.RichBold()**
+>Returns the string framed with the bold richtext  tag
+
+**string string.RichItalic()**
+>Returns the string framed with the italic richtext tag
+
+**string string.RichUnderline()**
+>Returns the string framed with the underline richtext tag
+
+**string string.RichStrikethrough()**
+>Returns the string framed with the strikethrough richtext tag
+
+**string string.RichFont(string font)**
+>Returns the string framed with the richFont richtext tag
+
+**string string.RichAlign(string align)**
+>Returns the string framed with the align richtext tag
+
+**string string.RichGradient(string htmlHexStartColor, string htmlHexEndColor)**
+>Returns the string framed with the gradient color richtext tag
+
+**string string.RichRotation(float angle)**
+>Returns the string framed with the rotation color richtext tag
+
+**string string.RichSpace(float space)**
+>Returns the string framed with the rotation space richtext tag
+
+**string string.Scramble(string seed, int offset=0)**
+>Returns a scramble string from a string seed and offset
+
+**string string.Unscramble(string seed, int offset=0)**
+>Returns an unscramble string previously scrambled
+
+**string string.Shorten(int maxLength)**
+>Shortens a string to the specified maximum length. If the string's length is less than the maxLength, the original string is returned.
+
+**string string.Slice(int startIndex, int endIndex)**
+>Slices a string from the start index to the end index.
+
+**string StringUtility.ConvertUtf32(params int[] unicodeValues)**<br>
+**string StringUtility.ConvertUtf32(IEnumerable\<int> unicodeValues)**
+>Converts unicodes utf32 characters to a string
+
+### Texture2D
+**Sprite Texture2D.ToSprite(Vector2 pivot, float pixelPerUnit = 100f)**<br>
+**Sprite Texture2D.ToSprite(SpriteAlignment pivotPosition= SpriteAlignment.Center,float pixelPerUnit = 100f)**
+>Returns a sprite from the texture 
+
+### Transform
+**Transform.DestroyChildren(float delay=0)**
+>Destroy all children after the delay expiration
+
+**Transform.DestroyImmediateChildren(float delay=0)**
+>Destroy all children
+
+**Transform Transform.FindFirstDescendantFromName(string name, bool parseAllDescendants=true)**
+>Returns the first found descendant which name matchs with the seeked name or null if nothing found.<br>
+>The search can be performed throw all the descendants hierarchy if the parameter parseAllDescendants is set to true.<br>
+>The research process analyzes each hierarchical level before moving on to the next level in the order of the children.
+
+**Transform Transform.FindDescendantFromPath(string path,string nodeStringSeparator="/")
+>Searches for a descendant node reccursively from a string pathNodesNames like a file pathNodesNames
+
+**Transform[] Transform.FindDescendants(Regex nameRegex,bool parseAllDescendants = true)**
+>Searches for descendant nodes whose names match the regular expression parameter.<br>
+>The search can be performed throw all the descendants hierarchy if the parameter parseAllDescendants is set to true.<br>
+>In case of nothing found the Transform array would be empty.
+
+**Transform[] Transform.FindDescendants(string name, bool parseAllDescendants = true)**
+>Searches for descendant nodes whose names matche the name parameter<br>
+>The search can be performed throw all the descendants hierarchy if the parameter parseAllDescendants is set to true.<br>
+>In case of nothing found the Transform array would be empty.
+
+**Transform.ReccursiveFindDescendants(Regex nameRegex, List\<Transform> result)**
+>Appends to result list the found descendants whose names match the regular expression parameter.
+
+**Transform.FindChildren(Regex nameRegex, List\<Transform> result)**
+>Appends to result list the found direct children whose names match the regular expression parameter.
+
+**int[] Transform.GetDescendantIndexPath(Transform descendantTarget)**
+>Returns the descendant index array path from the root target to the descendant 
+or null if the descendant target doesn't belong to the root hierachy. 
+
+**Transform Transform.GetDescendantFromIndexPath(params int[] descendantIndexes)**
+>Returns the descendant from self hierarchy using descendant indexes or null if the indexation is wrong.
+
+**Transform[] Transform.GetDescendants()**
+>Returns all descendants.
+
+**Transform.GetDescendants(List\<Transform> descendants)**
+>Appends the descendants list with all descendants nodes.
+
+**bool Transform.InRangeOf(Transform target, float maxDistance, float maxAngle = 360f)**
+>Checks if the transform is within a certain distance and optionally within a certain angle (FOV) from the target transform.<br>
+Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/TransformExtensions.cs
+
+**string  Transform.Path(string pathNodeSeparator="/")**
+> Returns the transform composed names path from self node to parent root.<br>
+In case of the self node is a root node the self node name is returned.
+
+**Transform.Reset()**
+>Resets transform's position, scale and rotation.
+
+**Transform.RotateAround(Vector3 pivot,Quaternion rotation)**
+**Transform.RotateAround(Vector3 pivot,Vector3 eulerAngles)**
+>Rotates around a pivot point.
+
+
+**Transform.OnEveryChild(System.Action\<Transform> action, bool occursOnAllDescendants = false)**
+>Executes a specified action for each child of a given Transform.<br>
+>This method iterates over all child and executes a given action on them.<br>
+>By default the action is executed only on the direct children, to apply the action on all the descendants in the hierarchy set the occursOnAllDescendants to true.<br>
+The action is a delegate that takes the child Transform as parameter.
+
+### Vector2
+**Vector2 Vector2.Add(float x = 0, float y = 0)**
+>Adds to any x y values of a Vector2<br>
+Source code: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector2Extensions.cs
+
+**bool Vector2.InRangeOf(Vector2 target, float range)**
+>Checks if the current Vector2 is in a given range from another vector<br>
+>Source code: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector2Extensions.cs
+
+**Vector2 Vector2.Quantize(Vector2 quantization)**
+**Vector2 Vector2.Quantize(float qx, float qy, float qz)**
+>Rounds the components of a Vector2 down to the nearest multiple of the given quantization step.
+Source cde from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector3Extensions.cs
+
+
+**Vector2 Vector2.RandomPointOnRing(float minRadius, float maxRadius)**
+>Computes a random point in an annulus (a ring-shaped area) based on minimum and 
+maximum radius values around a central Vector2 point (origin).<br>
+Source code: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector2Extensions.cs
+
+**Vector2 Vector2.With(float? x = null, float? y = null)**
+>Sets any x y values of a Vector2<br>
+Source code: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector2Extensions.cs
+
+### Vector3
+**Vector3 Vector3.Add(float x = 0, float y = 0, float z = 0)**
+>Adds to any x y z values of a Vector3<br>
+Source code: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector3Extensions.cs
+
+**Vector3 Vector3.ComponentDivideIfNotZero(Vector3 div)**
+>>Divides two Vector3 objects component-wise.<br>
+>>For each component in v0 (x, y, z), it is divided by the corresponding component in v1 if the component in v1 is not zero. 
+Otherwise, the component in v0 remains unchanged.<br>
+Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector3Extensions.cs
+
+**bool Vector3.InRangeOf(Vector3 target, float range)**
+>Checks if the current Vector2 is in a given range from another vector<br>
+>Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector3Extensions.cs
+
+**Vector3 Vector3.Quantize(Vector3 quantization)**
+**Vector3 Vector3.Quantize(float qx, float qy, float qz)**
+>Rounds the components of a Vector3 down to the nearest multiple of the given quantization step.
+This is useful for reducing precision or snapping positions to a grid,<br>
+for example to limit NavMesh rebuilds or discretize movement updates.<br>
+Source cde from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector3Extensions.cs
+
+**Vector3 Vector3.RandomPointOnPlaneRing(float minRadius, float maxRadius, Vector3 planeNormal)**
+>Gets a random point in an annulus (a ring-shaped area) based on minimum and maximum radius values around a central Vector3 point (origin) on a specified plane.
+
+**Vector3 Vector3.RandomPointOnXYPlaneRing(float minRadius, float maxRadius)**
+>Gets a random point in an annulus (a ring-shaped area) based on minimum and maximum radius values around a central Vector3 point (origin) on a the xy plane.
+
+**Vector3 Vector3.RandomPointOnXZPlaneRing(float minRadius, float maxRadius)**
+>Gets a random point in an annulus (a ring-shaped area) based on minimum and maximum radius values around a central Vector3 point (origin) on a the xz plane.
+
+**Vector3 Vector3.With(float? x = null, float? y = null, float? z = null)**
+>Sets any x y z values of a Vector3<br>
+Source code from: https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector3Extensions.cs

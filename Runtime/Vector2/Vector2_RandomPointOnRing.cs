@@ -6,6 +6,7 @@ namespace Extensions.Vector2_RandomPointOnRing
         /// <summary>
         /// Computes a random point in an annulus (a ring-shaped area) based on minimum and 
         /// maximum radius values around a central Vector2 point (origin).
+        /// Source code:https://github.com/adammyhre/Unity-Utils/blob/master/UnityUtils/Scripts/Extensions/Vector2Extensions.cs
         /// </summary>
         /// <param name="origin">The center Vector2 point of the annulus.</param>
         /// <param name="minRadius">Minimum radius of the annulus.</param>

@@ -5,24 +5,33 @@ namespace Extensions.Transform_GetDescendants
 {
     public static class Transform_GetDescendants
     {
-        public static Transform[] GetDescendants(this Transform _src)
+        /// <summary>
+        /// Returns the array of all descendants
+        /// </summary>
+        /// <param name="self">The root source</param>
+        /// <returns>The flat array of all descendants</returns>
+        public static Transform[] GetDescendants(this Transform self)
         {
-            if (_src.childCount == 0)
+            if (self.childCount == 0)
                 return null;
             List<Transform> descendants = new List<Transform>();
-            _src.GetDescendants(descendants);
-            if (descendants.Count == 0)
-                return null;
+            self.GetDescendants(descendants);
             return descendants.ToArray();
         }
-        public static void GetDescendants(this Transform _src, List<Transform> _descendants)
+        /// <summary>
+        /// Appends the decendants list with all descendants  
+        /// </summary>
+        /// <param name="self">The root source</param>
+        /// <param name="descendants">The descendants list to append</param>
+        public static void GetDescendants(this Transform self, List<Transform> descendants)
         {
-            int childCount = _src.childCount;
-            for(int i = 0; i < childCount; i++)
+            foreach (Transform child in self)
             {
-                Transform child = _src.GetChild(i);
-                _descendants.Add(child);
-                child.GetDescendants(_descendants);
+                descendants.Add(child);
+            }
+            foreach (Transform child in self)
+            {
+                child.GetDescendants(descendants);
             }
         }
     }

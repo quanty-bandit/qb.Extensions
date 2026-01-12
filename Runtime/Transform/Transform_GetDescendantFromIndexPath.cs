@@ -4,7 +4,7 @@ namespace Extensions.Transform_GetDescendantFromIndexPath
     public static class Transform_GetDescendantFromIndexPath
     {
         /// <summary>
-        /// Get a descendant from self hierarchy using descendant indexes
+        /// Returns the descendant from self hierarchy using descendant indexes.
         /// </summary>
         /// <param name="self">The self transform as start root target of the hierarchy</param>
         /// <param name="descendantIndexes"></param>
