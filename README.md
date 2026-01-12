@@ -334,7 +334,7 @@ into their ASCII equivalents, if one exists.
 >The search can be performed throw all the descendants hierarchy if the parameter parseAllDescendants is set to true.<br>
 >The research process analyzes each hierarchical level before moving on to the next level in the order of the children.
 
-**Transform Transform.FindDescendantFromPath(string path,string nodeStringSeparator="/")
+**Transform Transform.FindDescendantFromPath(string path,string nodeStringSeparator="/")**
 >Searches for a descendant node reccursively from a string pathNodesNames like a file pathNodesNames
 
 **Transform[] Transform.FindDescendants(Regex nameRegex,bool parseAllDescendants = true)**
