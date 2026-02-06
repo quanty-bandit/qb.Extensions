@@ -13,8 +13,8 @@ namespace Extensions.Transform_DestroyChildren
         public static void DestroyChildren(this Transform root, float delay=0)
         {
             List<GameObject> list = new List<GameObject>();
-            foreach (GameObject child in root)
-                list.Add(child);
+            foreach (Transform child in root)
+                list.Add(child.gameObject);
             root.DetachChildren();
             foreach (var child in list)
                 GameObject.Destroy(child, delay);

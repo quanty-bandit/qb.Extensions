@@ -36,9 +36,9 @@ namespace Extensions.GameObject_GetInterfacesFromDescendants
         /// <param name="interfaces">The list to fill with the result</param>
         public static void GetInterfacesFromChildren<I>(this GameObject self,List<I> interfaces) where I : MonoBehaviour
         {
-            foreach (GameObject gameObject in self.transform)
+            foreach (Transform child in self.transform)
             {
-                GetInterfacesFromMonoBehaviours<I>(gameObject, interfaces);
+                GetInterfacesFromMonoBehaviours<I>(child.gameObject, interfaces);
             }
         }
         /// <summary>

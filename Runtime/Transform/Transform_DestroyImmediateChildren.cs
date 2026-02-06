@@ -10,8 +10,8 @@ public static class Transform_DestroyImmediateChildren
     public static void DestroyImmediateChildren(this Transform root)
     {
         List<GameObject> list = new List<GameObject>();
-        foreach (GameObject child in root)
-            list.Add(child);
+        foreach (Transform child in root)
+            list.Add(child.gameObject);
         root.DetachChildren();
         foreach (var child in list)
             GameObject.DestroyImmediate(child);

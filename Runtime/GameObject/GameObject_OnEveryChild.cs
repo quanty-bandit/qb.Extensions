@@ -15,12 +15,12 @@ namespace Extensions.GameObject_OnEveryChild
         /// </remarks>
         public static void OnEveryChild(this GameObject parent, System.Action<GameObject> action,bool occursOnAllDescendants=false)
         {
-            foreach(GameObject child in parent.transform)
-                action(child);
+            foreach(Transform child in parent.transform)
+                action(child.gameObject);
             if(occursOnAllDescendants)
             {
-                foreach (GameObject child in parent.transform)
-                    OnEveryChild(child,action,true);
+                foreach (Transform child in parent.transform)
+                    OnEveryChild(child.gameObject,action,true);
             }
         }
     }
